@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.images-container {
+  background-image: url("../public/login/bg_logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.login-inner-boxes {
+  background: linear-gradient(180deg, #4db8d64a, #ffffff20) !important;
+  border: 1px solid #ffffff25 !important;
+  border-radius: 10px;
+  padding: 1.5rem;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  gap: 10px;
+}
+
+.login__section_image {
+  width: 120px;
+  height: 120px;
+  max-width: 120px;
+  max-height: 120px;
+}
+/* .v-image__image {
+  background-size: contain;
+} */
