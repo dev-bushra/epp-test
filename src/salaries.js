@@ -3,7 +3,7 @@
   * Muse Ant Design Dashboard - v1.0.0
   =========================================================
   * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+  * Copyright 2024 Creative Tim (https://www.creative-tim.com)
   * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
   * Coded by Creative Tim
   =========================================================
@@ -23,11 +23,14 @@ import {
   Button,
   Timeline,
   Radio,
+  List,
+  Avatar,
 } from "antd";
 import {
   ToTopOutlined,
   MenuUnfoldOutlined,
   RightOutlined,
+  FlagTwoTone,
 } from "@ant-design/icons";
 import Paragraph from "antd/lib/typography/Paragraph";
 
@@ -45,13 +48,33 @@ import team2 from "./assets/images/team-2.jpg";
 import team3 from "./assets/images/team-3.jpg";
 import team4 from "./assets/images/team-4.jpg";
 import card from "./assets/images/info-card-1.jpg";
+import { PlusOutlined, ExclamationOutlined } from "@ant-design/icons";
 
-function Dashboard() {
+function Salaries() {
   const { Title, Text } = Typography;
 
   const onChange = (e) => console.log(`radio checked:${e.target.value}`);
 
   const [reverse, setReverse] = useState(false);
+
+  const yesterday = [
+    {
+      avatar: <PlusOutlined style={{ fontSize: 10 }} />,
+      title: "Stripe payment",
+      description: "26 March 2024, at 12:30 AM",
+      amount: "+ $750",
+      textclass: "text-fill",
+      amountcolor: "text-success",
+    },
+    {
+      avatar: <ExclamationOutlined style={{ fontSize: 10 }} />,
+      title: "Gov payment",
+      description: "26 March 2024, at 04:00 AM",
+      amount: "Pending",
+      textclass: "text-warning",
+      amountcolor: "text-warning-b",
+    },
+  ];
 
   const pencil = [
     <svg
@@ -107,7 +130,127 @@ function Dashboard() {
       ></path>
     </svg>,
   ];
+  const flagicon = [
+    <svg
+      width="14"
+      height="14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      key={0}
+      viewBox="0 0 448 512"
+    >
+      <path
+        className="fill-red-7"
+        d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24L0 64 0 350.5 0 400l0 88c0 13.3 10.7 24 24 24s24-10.7 24-24l0-100 80.3-20.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30l0-279.7c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L48 52l0-28zm0 77.5l96.6-24.2c27-6.7 55.5-3.6 80.4 8.8c54.9 27.4 118.7 29.7 175 6.8l0 241.8-24.4 9.1c-33.7 12.6-71.2 10.7-103.4-5.4c-48.2-24.1-103.3-30.1-155.6-17.1L48 338.5l0-237z"
+      />
+    </svg>,
+  ];
+  const addbtn = [
+    <svg
+      width="20"
+      height="20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      key={0}
+      viewBox="0 0 448 512"
+    >
+      <path
+        className="fill-green-7"
+        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"
+      />
+    </svg>,
+  ];
+  const invoicebtn = [
+    <svg
+      width="20"
+      height="20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      key={0}
+      viewBox="0 0 384 512"
+    >
+      <path
+        className="fill-blue-7"
+        d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM64 80c0-8.8 7.2-16 16-16l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L80 96c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16zm128 72c8.8 0 16 7.2 16 16l0 17.3c8.5 1.2 16.7 3.1 24.1 5.1c8.5 2.3 13.6 11 11.3 19.6s-11 13.6-19.6 11.3c-11.1-3-22-5.2-32.1-5.3c-8.4-.1-17.4 1.8-23.6 5.5c-5.7 3.4-8.1 7.3-8.1 12.8c0 3.7 1.3 6.5 7.3 10.1c6.9 4.1 16.6 7.1 29.2 10.9l.5 .1s0 0 0 0s0 0 0 0c11.3 3.4 25.3 7.6 36.3 14.6c12.1 7.6 22.4 19.7 22.7 38.2c.3 19.3-9.6 33.3-22.9 41.6c-7.7 4.8-16.4 7.6-25.1 9.1l0 17.1c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-17.8c-11.2-2.1-21.7-5.7-30.9-8.9c0 0 0 0 0 0c-2.1-.7-4.2-1.4-6.2-2.1c-8.4-2.8-12.9-11.9-10.1-20.2s11.9-12.9 20.2-10.1c2.5 .8 4.8 1.6 7.1 2.4c0 0 0 0 0 0s0 0 0 0s0 0 0 0c13.6 4.6 24.6 8.4 36.3 8.7c9.1 .3 17.9-1.7 23.7-5.3c5.1-3.2 7.9-7.3 7.8-14c-.1-4.6-1.8-7.8-7.7-11.6c-6.8-4.3-16.5-7.4-29-11.2l-1.6-.5s0 0 0 0c-11-3.3-24.3-7.3-34.8-13.7c-12-7.2-22.6-18.9-22.7-37.3c-.1-19.4 10.8-32.8 23.8-40.5c7.5-4.4 15.8-7.2 24.1-8.7l0-17.3c0-8.8 7.2-16 16-16z"
+      />
+    </svg>,
+  ];
 
+  const mins = [
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      key={0}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 10C5 9.44772 5.44772 9 6 9L14 9C14.5523 9 15 9.44772 15 10C15 10.5523 14.5523 11 14 11L6 11C5.44772 11 5 10.5523 5 10Z"
+        className="fill-danger"
+      ></path>
+    </svg>,
+  ];
+
+  const data = [
+    {
+      title: "March, 01, 2024",
+      description: "S415646",
+      amount: "$180",
+    },
+    {
+      title: "March, 01, 2024",
+      description: "S415646",
+      amount: "$180",
+    },
+    {
+      title: "March, 01, 2024",
+      description: "S415646",
+      amount: "$180",
+    },
+    {
+      title: "March, 01, 2024",
+      description: "S415646",
+      amount: "$180",
+    },
+    {
+      title: "March, 01, 2024",
+      description: "S415646",
+      amount: "$180",
+    },
+    {
+      title: "March, 01, 2024",
+      description: "S415646",
+      amount: "$180",
+    },
+    {
+      title: "March, 01, 2024",
+      description: "S415646",
+      amount: "$180",
+    },
+  ];
+
+  const newest = [
+    {
+      headding: <h6>NEWEST</h6>,
+      avatar: mins,
+      title: "Employs salaries",
+      description: "27 March 2024, at 12:30 PM",
+      amount: "- $2,500",
+      textclass: "text-light-danger",
+      amountcolor: "text-danger",
+    },
+    {
+      avatar: <PlusOutlined style={{ fontSize: 10 }} />,
+      title: "Clients payment",
+      description: "27 March 2024, at 04:30 AM",
+      amount: "+ $2,000",
+      textclass: "text-fill",
+      amountcolor: "text-success",
+    },
+  ];
   const information = [
     {
       title: "Oliver Liam",
@@ -129,8 +272,8 @@ function Dashboard() {
   ];
   const calender = [
     <svg
-      width="18"
-      height="18"
+      width="14"
+      height="14"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -231,89 +374,170 @@ function Dashboard() {
       ></path>
     </svg>,
   ];
-  const count = [
-    {
-      today: "Today’s Sales",
-      title: "$53,000",
-      persent: "+30%",
-      icon: dollor,
-      bnb: "bnb2",
-    },
-    {
-      today: "Today’s Users",
-      title: "3,200",
-      persent: "+20%",
-      icon: profile,
-      bnb: "bnb2",
-    },
-    {
-      today: "New Clients",
-      title: "+1,200",
-      persent: "-20%",
-      icon: heart,
-      bnb: "redtext",
-    },
-    {
-      today: "New Orders",
-      title: "$13,200",
-      persent: "10%",
-      icon: cart,
-      bnb: "bnb2",
-    },
-  ];
 
   const list = [
     {
       id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
       joining_date: "1 JUL 2020",
       img: team1,
       name: "Maia John Nathan",
-      sal: "$14,000",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
       allowance: "$24,000",
       progress: <Progress percent={60} size="small" />,
     },
     {
-      id: "P9380",
-      joining_date: "1 JUL 2020",
-      img: team2,
-      name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
-      allowance: "$24,000",
-      progress: <Progress percent={60} size="small" />,
-    },
-    {
-      id: "P9380",
-      joining_date: "1 JUL 2020",
-      img: team4,
-      name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
-      allowance: "$24,000",
-      progress: <Progress percent={60} size="small" />,
-    },
-    {
-      id: "P9380",
-      joining_date: "1 JUL 2020",
-      img: team3,
-      name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
-      allowance: "$24,000",
-      progress: <Progress percent={60} size="small" />,
-    },
-    {
-      id: "P9380",
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
       joining_date: "1 JUL 2020",
       img: team1,
-      name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: true,
       allowance: "$24,000",
       progress: <Progress percent={60} size="small" />,
     },
     {
-      id: "P9380",
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
       joining_date: "1 JUL 2020",
-      img: team2,
-      name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
+      allowance: "$24,000",
+      progress: <Progress percent={60} size="small" />,
+    },
+    {
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
+      joining_date: "1 JUL 2020",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
+      allowance: "$24,000",
+      progress: <Progress percent={60} size="small" />,
+    },
+    {
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
+      joining_date: "1 JUL 2020",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
+      allowance: "$24,000",
+      progress: <Progress percent={60} size="small" />,
+    },
+    {
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
+      joining_date: "1 JUL 2020",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
+      allowance: "$24,000",
+      progress: <Progress percent={60} size="small" />,
+    },
+    {
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
+      joining_date: "1 JUL 2020",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
+      allowance: "$24,000",
+      progress: <Progress percent={60} size="small" />,
+    },
+    {
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
+      joining_date: "1 JUL 2020",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
+      allowance: "$24,000",
+      progress: <Progress percent={60} size="small" />,
+    },
+    {
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
+      joining_date: "1 JUL 2020",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
+      allowance: "$24,000",
+      progress: <Progress percent={60} size="small" />,
+    },
+    {
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
+      joining_date: "1 JUL 2020",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
+      allowance: "$24,000",
+      progress: <Progress percent={60} size="small" />,
+    },
+    {
+      id: "C9302",
+      deductions: "$450",
+      bonus: "$450",
+      joining_date: "1 JUL 2020",
+      img: team1,
+      name: "Maia John Nathan",
+      sal: "$14,000 / $168,000",
+      m_sal: "$14,000",
+      y_sal: "$168,000",
+      total: "$17,000",
+      end_service: false,
       allowance: "$24,000",
       progress: <Progress percent={60} size="small" />,
     },
@@ -378,45 +602,25 @@ function Dashboard() {
   return (
     <>
       <div className="layout-content">
-        <Row className="rowgap-vbox" gutter={[24, 0]}>
-          {count.map((c, index) => (
-            <Col
-              key={index}
-              xs={24}
-              sm={24}
-              md={12}
-              lg={6}
-              xl={6}
-              className="mb-24"
-            >
-              <Card bordered={false} className="criclebox ">
-                <div className="number">
-                  <Row align="middle" gutter={[24, 0]}>
-                    <Col xs={18}>
-                      <span>{c.today}</span>
-                      <Title level={3}>
-                        {c.title} <small className={c.bnb}>{c.persent}</small>
-                      </Title>
-                    </Col>
-                    <Col xs={6}>
-                      <div className="icon-box">{c.icon}</div>
-                    </Col>
-                  </Row>
-                </div>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-
         <Row gutter={[24, 0]}>
-          <Col xs={24} sm={24} md={12} lg={12} xl={16} className="mb-24">
+          <Col xs={24} sm={24} md={24} lg={24} xl={24} className="mb-24">
             <Card bordered={false} className="criclebox cardbody h-full">
               <div className="project-ant">
                 <div>
                   <Title level={5}>All Employs</Title>
-                  <Paragraph className="lastweek">
-                    total employs<span className="blue">830</span>
-                  </Paragraph>
+                  <div className="flex items-center gap-3">
+                    <Paragraph className="lastweek">
+                      total employs<span className="blue mr-2">830</span> /
+                    </Paragraph>
+                    <Paragraph className="lastweek">
+                      processed<span className="mx-2 text-green-600">830</span>{" "}
+                      /
+                    </Paragraph>
+                    <Paragraph className="lastweek">
+                      not processed
+                      <span className="ml-2 text-red-600">830</span>
+                    </Paragraph>
+                  </div>
                 </div>
                 <div className="ant-filtertabs">
                   <div className="antd-pro-pages-dashboard-analysis-style-salesExtra">
@@ -428,62 +632,87 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-                    <div className="flex items-center w-fit gap-3">
-                      <Button type="primary" className="ml-6">
-                        ADD NEW
-                      </Button>
-                      <div className="shadow-none">
+              <div className="flex items-center w-fit gap-3">
+                <Button type="primary" className="ml-6">
+                  Refresh
+                </Button>
+                <Button type="primary" className="">
+                  Select Multiple
+                </Button>
+                <Button type="primary" className="">
+                  Process a New Payment
+                </Button>
+                <div className="shadow-none">
                   <Upload {...uploadProps}>
                     <Button
                       type="dashed"
                       className="ant-full-box"
                       icon={<ToTopOutlined />}
                     >
-                      <span className="click">
-                        Upload Employ Excel Sheet
-                      </span>
+                      <span className="click">Upload Employ Excel Sheet</span>
                     </Button>
                   </Upload>
-                    </div>
+                </div>
               </div>
               <div className="ant-list-box table-responsive mt-5">
                 <table className="width-100">
                   <thead>
                     <tr>
-                      <th>Name</th>
                       <th>ID</th>
-                      <th>JOINING</th>
-                      <th>SALARY</th>
-                      <th>ALLOWANCES</th>
-                      <th>OTHER</th>
+                      <th>DEDUCTIONS</th>
+                      <th>BONUS</th>
+                      <th>MONTHLY / YEARLY</th>
+                      <th>TOTAL TO PAY</th>
+                      <th>NOTE</th>
+                      <th>MANAGE</th>
                     </tr>
                   </thead>
                   <tbody>
                     {list.map((d, index) => (
                       <tr key={index}>
-                        <td>
-                          <div className="flex items-center">
-                            <img
-                              src={d.img}
-                              alt=""
-                              className="avatar-sm mr-10 rounded-full"
-                            />{" "}
-                            {d.name}
-                          </div>
-                        </td>
                         <td>{d.id}</td>
-                        <td>{d.joining_date}</td>
-                        <td>
-                          <span className="text-xs font-weight-bold">
-                            {d.sal}{" "}
+                        <td className="text-xs font-weight-bold">
+                          <span className=" text-red-500">
+                            - {d.deductions}{" "}
                           </span>
                         </td>
-                        <td>
-                          <div className="percent-progress">{d.progress}</div>
+                        <td className="text-xs font-weight-bold">
+                          <span className=" text-green-500">+ {d.bonus} </span>
                         </td>
                         <td>
-                          <div className="flex items-center gap-2">
+                          <span className="text-xs font-weight-bold">
+                            {d.m_sal} / {d.y_sal}
+                          </span>
+                        </td>
+                        <td className="text-xs font-weight-bold">
+                          <span className=" text-blue-500 text-[13px] underline font-bold">
+                            {d.total}{" "}
+                          </span>
+                        </td>
+                        <td className="text-xs font-weight-bold">
+                          <div className="flex flex-col gap-[5px]">
+                            {d.end_service && (
+                              <div className="m-0 p-0 flex items-center justify-start mx-auto gap-2">
+                                {/* {flagicon} */}
+                                <FlagTwoTone />
+                                <span className="">
+                                  {" "}
+                                  end of service payment
+                                </span>
+                              </div>
+                            )}
+                            {index % 2 === 0 ? (
+                              <span>😡 salary not paid yet</span>
+                            ) : (
+                              <span>😊 salary paid successfully</span>
+                            )}
+                          </div>
+                        </td>
+                        <td>
+                          <div className="flex items-center gap-x-5">
+                            <div className=" cursor-pointer">{addbtn} </div>
                             <div className=" cursor-pointer">{pencil} </div>
+                            <div className=" cursor-pointer">{invoicebtn} </div>
                             <div className=" cursor-pointer">{deletebtn} </div>
                           </div>
                         </td>
@@ -493,15 +722,45 @@ function Dashboard() {
                 </table>
               </div>
               <div className="uploadfile mt-5 shadow-none">
-                <Button
-                  type="secondary"
-                  className="width-100"
-                >
+                <Button type="secondary" className="width-100">
                   <span className="click">View all</span>
                 </Button>
               </div>
             </Card>
           </Col>
+        </Row>
+
+        <Row gutter={[24, 0]}>
+          <Col span={24} md={8} className="mb-24">
+            <Card
+              bordered={false}
+              className="header-solid h-full ant-invoice-card"
+              title={[<h6 className="font-semibold m-0">Invoices History</h6>]}
+              extra={[
+                <Button type="primary">
+                  <span>VIEW ALL</span>
+                </Button>,
+              ]}
+            >
+              <List
+                itemLayout="horizontal"
+                className="invoice-list"
+                dataSource={data}
+                renderItem={(item) => (
+                  <List.Item
+                    actions={[<Button type="link">{download} PDF</Button>]}
+                  >
+                    <List.Item.Meta
+                      title={item.title}
+                      description={item.description}
+                    />
+                    <div className="amount">{item.amount}</div>
+                  </List.Item>
+                )}
+              />
+            </Card>
+          </Col>
+
           <Col xs={24} sm={24} md={12} lg={12} xl={8} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
               <div className="timeline-box">
@@ -532,70 +791,64 @@ function Dashboard() {
               </div>
             </Card>
           </Col>
-        </Row>
-
-        <Row gutter={[24, 0]}>
-          <Col xs={24} md={12} sm={24} lg={12} xl={14} className="mb-24">
-            <Card bordered={false} className="criclebox h-full">
-              <Row gutter>
-                <Col
-                  xs={24}
-                  md={12}
-                  sm={24}
-                  lg={12}
-                  xl={14}
-                  className="mobile-24"
-                >
-                  <div className="h-full col-content p-20">
-                    <div className="ant-muse">
-                      <Text>Built by developers</Text>
-                      <Title level={5}>Muse Dashboard for Ant Design</Title>
-                      <Paragraph className="lastweek mb-36">
-                        From colors, cards, typography to complex elements, you
-                        will find the full documentation.
-                      </Paragraph>
+          <Col span={24} md={8} className="mb-24">
+            <Card
+              bordered={false}
+              bodyStyle={{ paddingTop: 0 }}
+              className="header-solid h-full  ant-list-yes"
+              title={<h6 className="font-semibold m-0">Your Transactions</h6>}
+              extra={
+                <p className="card-header-date flex">
+                  {calender}
+                  <span className="text-[12px]">23 - 30 March 2024</span>
+                </p>
+              }
+            >
+              <List
+                header={<h6>NEWEST</h6>}
+                className="transactions-list ant-newest"
+                itemLayout="horizontal"
+                dataSource={newest}
+                renderItem={(item) => (
+                  <List.Item>
+                    <List.Item.Meta
+                      avatar={
+                        <Avatar size="small" className={item.textclass}>
+                          {item.avatar}
+                        </Avatar>
+                      }
+                      title={item.title}
+                      description={item.description}
+                    />
+                    <div className="amount">
+                      <span className={item.amountcolor}>{item.amount}</span>
                     </div>
-                    <div className="card-footer">
-                      <a className="icon-move-right" href="#pablo">
-                        Read More
-                        {<RightOutlined />}
-                      </a>
-                    </div>
-                  </div>
-                </Col>
-                <Col
-                  xs={24}
-                  md={12}
-                  sm={24}
-                  lg={12}
-                  xl={10}
-                  className="col-img"
-                >
-                  <div className="ant-cret text-right">
-                    <img src={card} alt="" className="border10" />
-                  </div>
-                </Col>
-              </Row>
-            </Card>
-          </Col>
+                  </List.Item>
+                )}
+              />
 
-          <Col xs={24} md={12} sm={24} lg={12} xl={10} className="mb-24">
-            <Card bordered={false} className="criclebox card-info-2 h-full">
-              <div className="gradent h-full col-content">
-                <div className="card-content">
-                  <Title level={5}>Work with the best</Title>
-                  <p>
-                    Wealth creation is an evolutionarily recent positive-sum
-                    game. It is all about who take the opportunity first.
-                  </p>
-                </div>
-                <div className="card-footer">
-                  <a className="icon-move-right" href="#pablo">
-                    Read More
-                    <RightOutlined />
-                  </a>
-                </div>
-              </div>
+              <List
+                className="yestday transactions-list"
+                header={<h6>YESTERDAY</h6>}
+                itemLayout="horizontal"
+                dataSource={yesterday}
+                renderItem={(item) => (
+                  <List.Item>
+                    <List.Item.Meta
+                      avatar={
+                        <Avatar size="small" className={item.textclass}>
+                          {item.avatar}
+                        </Avatar>
+                      }
+                      title={item.title}
+                      description={item.description}
+                    />
+                    <div className="amount">
+                      <span className={item.amountcolor}>{item.amount}</span>
+                    </div>
+                  </List.Item>
+                )}
+              />
             </Card>
           </Col>
         </Row>
@@ -604,4 +857,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Salaries;

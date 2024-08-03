@@ -4,6 +4,11 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Login from "./login";
 import Dashboard from "./dashboard";
 
+import Main from "./components/layout/Main";
+// import "antd/dist/antd.css";
+import "./assets/styles/main.css";
+import "./assets/styles/responsive.css";
+import Salaries from "./salaries";
 function App() {
   return (
     <div>
@@ -13,7 +18,10 @@ function App() {
       </nav> */}
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Main> */}
+          <Route path="/dashboard" element={<Main><Dashboard /></Main>} />
+          <Route path="/salaries" element={<Main><Salaries /></Main>} />
+        {/* </Main> */}
       </Routes>
     </div>
   );
