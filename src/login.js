@@ -88,12 +88,12 @@ const Home = () => {
           </div>
           <div className="flex flex-col items-center justify-center gap-3 mt-10">
             <Input
-              size="large"
+              size="small"
               placeholder="User ID"
               prefix={<UserOutlined />}
             />
             <Input.Password
-              size="large"
+              size="small"
               placeholder="Password"
               prefix={<LockOutlined />}
             />
@@ -125,22 +125,22 @@ const Home = () => {
           <span className="text-[18px]">Create new account</span>
           <div className="flex flex-col items-center justify-center gap-3 mt-10">
             <Input
-              size="large"
+              size="small"
               placeholder="Email Address"
               prefix={<UserOutlined />}
             />
             <Input
-              size="large"
+              size="small"
               placeholder="User ID"
               prefix={<UserOutlined />}
             />
             <Input.Password
-              size="large"
+              size="small"
               placeholder="Password"
               prefix={<LockOutlined />}
             />
             <Input.Password
-              size="large"
+              size="small"
               placeholder="Confirm Password"
               prefix={<LockOutlined />}
             />

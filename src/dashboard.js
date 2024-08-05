@@ -12,6 +12,9 @@ import {
   Button,
   Timeline,
   Radio,
+  Form,
+  Input,
+  Checkbox,
 } from "antd";
 import {
   ToTopOutlined,
@@ -28,12 +31,11 @@ import ava2 from "./assets/images/logo-atlassian.svg";
 import ava3 from "./assets/images/logo-slack.svg";
 import ava4 from "./assets/images/logo-spotify.svg";
 import ava5 from "./assets/images/logo-jira.svg";
-import ava6 from "./assets/images/logo-invision.svg";
 import team1 from "./assets/images/team-1.jpg";
 import team2 from "./assets/images/team-2.jpg";
 import team3 from "./assets/images/team-3.jpg";
 import team4 from "./assets/images/team-4.jpg";
-import card from "./assets/images/info-card-1.jpg";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const { Title, Text } = Typography;
@@ -41,6 +43,7 @@ function Dashboard() {
   const onChange = (e) => console.log(`radio checked:AED {e.target.value}`);
 
   const [reverse, setReverse] = useState(false);
+  const [addNewPop, setAddNewPop] = useState(false);
 
   const pencil = [
     <svg
@@ -222,14 +225,14 @@ function Dashboard() {
   ];
   const count = [
     {
-      today: "Paid Amount",
+      today: "Pending Amount",
       title: "AED 53,000",
       persent: "+30%",
       icon: dollor,
       bnb: "bnb2",
     },
     {
-      today: "Pending Amount",
+      today: "Paid Amount",
       title: "AED 34,000",
       persent: "-20%",
       icon: heart,
@@ -431,7 +434,11 @@ function Dashboard() {
                 </div>
               </div>
               <div className="flex items-center w-fit gap-3">
-                <Button type="primary" className="ml-6">
+                <Button
+                  type="primary"
+                  className="ml-6"
+                  onClick={() => setAddNewPop(!addNewPop)}
+                >
                   ADD NEW
                 </Button>
                 <div className="shadow-none">
@@ -530,6 +537,84 @@ function Dashboard() {
             </Card>
           </Col>
         </Row>
+
+        {addNewPop && (
+          <div className="z-[100] bg-[#0000004c] fixed top-0 right-0 flex items-center justify-center min-w-full max-w-full min-h-screen max-h-screen pt-[12rem]">
+            <Card
+              className="card-signup header-solid ant-card p-0 m-auto"
+              title={<h5>Add New</h5>}
+              bordered="false"
+            >
+              <Form
+                name="basic"
+                initialValues={{ remember: true }}
+                className="row-col"
+              >
+                <Form.Item
+                  name="Name"
+                  rules={[
+                    { required: true, message: "Please input employ Name!" },
+                  ]}
+                >
+                  <Input placeholder="Name" />
+                </Form.Item>
+                <Form.Item
+                  name="Joining Date"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your Joining Date!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Joining Date" />
+                </Form.Item>
+                <Form.Item
+                  name="Basic Salary"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your Basic Salary!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Basic Salary" />
+                </Form.Item>
+                <Form.Item
+                  name="Allowance"
+                  rules={[
+                    { required: true, message: "Please input your Allowance!" },
+                  ]}
+                >
+                  <Input placeholder="Allowance" />
+                </Form.Item>
+                <Form.Item name="remember" valuePropName="checked">
+                  <Checkbox>Is Admin?</Checkbox>
+                </Form.Item>
+
+                <Form.Item>
+                  <Button
+                    style={{ width: "100%" }}
+                    type="primary"
+                    htmlType="submit"
+                    onClick={() => setAddNewPop(!addNewPop)}
+                  >
+                    Save
+                  </Button>
+                  <Button
+                    style={{ width: "100%" }}
+                    type="secondary"
+                    htmlType="submit"
+                    onClick={() => setAddNewPop(!addNewPop)}
+                    className="mt-2"
+                  >
+                    Cancel
+                  </Button>
+                </Form.Item>
+              </Form>
+            </Card>
+          </div>
+        )}
       </div>
     </>
   );

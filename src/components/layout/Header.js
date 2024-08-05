@@ -271,7 +271,6 @@ function Header({
               {name.replace("/", "")}
             </Breadcrumb.Item>
           </Breadcrumb>
-          
         </Col>
         <Col span={24} md={18} className="header-control">
           <Button type="link" onClick={showDrawer}>
