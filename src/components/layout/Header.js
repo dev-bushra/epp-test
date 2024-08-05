@@ -258,7 +258,7 @@ function Header({
 
   return (
     <>
-      <div className="setting-drwer" onClick={showDrawer}>
+      <div className="setting-drwer flex items-center justify-center" onClick={showDrawer}>
         {setting}
       </div>
       <Row gutter={[24, 0]}>
