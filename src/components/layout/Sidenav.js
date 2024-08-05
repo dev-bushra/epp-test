@@ -203,7 +203,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="7">
-          <NavLink to="/login">
+          <NavLink to="/">
             <span className="icon">{LogOut}</span>
             <span className="label">Log Out</span>
           </NavLink>
