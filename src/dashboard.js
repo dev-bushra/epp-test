@@ -1,14 +1,3 @@
-/*!
-  =========================================================
-  * Muse Ant Design Dashboard - v1.0.0
-  =========================================================
-  * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
-  =========================================================
-  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 import { useState } from "react";
 
 import {
@@ -31,8 +20,8 @@ import {
 } from "@ant-design/icons";
 import Paragraph from "antd/lib/typography/Paragraph";
 
-// import Echart from "../components/chart/EChart";
-// import LineChart from "../components/chart/LineChart";
+import Echart from "./components/chart/EChart";
+import LineChart from "./components/chart/LineChart";
 
 import ava1 from "./assets/images/logo-shopify.svg";
 import ava2 from "./assets/images/logo-atlassian.svg";
@@ -49,7 +38,7 @@ import card from "./assets/images/info-card-1.jpg";
 function Dashboard() {
   const { Title, Text } = Typography;
 
-  const onChange = (e) => console.log(`radio checked:${e.target.value}`);
+  const onChange = (e) => console.log(`radio checked:AED {e.target.value}`);
 
   const [reverse, setReverse] = useState(false);
 
@@ -233,29 +222,29 @@ function Dashboard() {
   ];
   const count = [
     {
-      today: "Today’s Sales",
-      title: "$53,000",
+      today: "Paid Amount",
+      title: "AED 53,000",
       persent: "+30%",
       icon: dollor,
       bnb: "bnb2",
     },
     {
-      today: "Today’s Users",
-      title: "3,200",
-      persent: "+20%",
-      icon: profile,
-      bnb: "bnb2",
-    },
-    {
-      today: "New Clients",
-      title: "+1,200",
+      today: "Pending Amount",
+      title: "AED 34,000",
       persent: "-20%",
       icon: heart,
       bnb: "redtext",
     },
     {
-      today: "New Orders",
-      title: "$13,200",
+      today: "New Employs",
+      title: "+81",
+      persent: "+12%",
+      icon: profile,
+      bnb: "bnb2",
+    },
+    {
+      today: "COA",
+      title: "AED 13,200",
       persent: "10%",
       icon: cart,
       bnb: "bnb2",
@@ -268,8 +257,8 @@ function Dashboard() {
       joining_date: "1 JUL 2020",
       img: team1,
       name: "Maia John Nathan",
-      sal: "$14,000",
-      allowance: "$24,000",
+      sal: "AED 14,000",
+      allowance: "AED 24,000",
       progress: <Progress percent={60} size="small" />,
     },
     {
@@ -277,8 +266,8 @@ function Dashboard() {
       joining_date: "1 JUL 2020",
       img: team2,
       name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
-      allowance: "$24,000",
+      sal: "AED 14,000",
+      allowance: "AED 24,000",
       progress: <Progress percent={60} size="small" />,
     },
     {
@@ -286,8 +275,8 @@ function Dashboard() {
       joining_date: "1 JUL 2020",
       img: team4,
       name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
-      allowance: "$24,000",
+      sal: "AED 14,000",
+      allowance: "AED 24,000",
       progress: <Progress percent={60} size="small" />,
     },
     {
@@ -295,8 +284,8 @@ function Dashboard() {
       joining_date: "1 JUL 2020",
       img: team3,
       name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
-      allowance: "$24,000",
+      sal: "AED 14,000",
+      allowance: "AED 24,000",
       progress: <Progress percent={60} size="small" />,
     },
     {
@@ -304,8 +293,8 @@ function Dashboard() {
       joining_date: "1 JUL 2020",
       img: team1,
       name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
-      allowance: "$24,000",
+      sal: "AED 14,000",
+      allowance: "AED 24,000",
       progress: <Progress percent={60} size="small" />,
     },
     {
@@ -313,30 +302,30 @@ function Dashboard() {
       joining_date: "1 JUL 2020",
       img: team2,
       name: "Bushra Aboubida Ahmed",
-      sal: "$14,000",
-      allowance: "$24,000",
+      sal: "AED 14,000",
+      allowance: "AED 24,000",
       progress: <Progress percent={60} size="small" />,
     },
   ];
 
   const timelineList = [
     {
-      title: "$20,400 - freelancer payment",
+      title: "AED 20,400 - freelancer payment",
       time: "09 JUN 7:20 PM",
       color: "green",
     },
     {
-      title: "$18,000 - salary payment for T36323",
+      title: "AED 18,000 - salary payment for T36323",
       time: "08 JUN 12:20 PM",
       color: "green",
     },
     {
-      title: "$70,200 - cleaning server payments",
+      title: "AED 70,200 - cleaning server payments",
       time: "04 JUN 3:10 PM",
       color: "green",
     },
     {
-      title: "$18,000 - salary payment for K90331",
+      title: "AED 18,000 - salary payment for K90331",
       time: "02 JUN 2:45 PM",
       color: "green",
     },
@@ -368,9 +357,9 @@ function Dashboard() {
         console.log(info.file, info.fileList);
       }
       if (info.file.status === "done") {
-        message.success(`${info.file.name} file uploaded successfully`);
+        message.success(`AED {info.file.name} file uploaded successfully`);
       } else if (info.file.status === "error") {
-        message.error(`${info.file.name} file upload failed.`);
+        message.error(`AED {info.file.name} file upload failed.`);
       }
     },
   };
@@ -394,12 +383,14 @@ function Dashboard() {
                   <Row align="middle" gutter={[24, 0]}>
                     <Col xs={18}>
                       <span>{c.today}</span>
-                      <Title level={3}>
+                      <Title level={4}>
                         {c.title} <small className={c.bnb}>{c.persent}</small>
                       </Title>
                     </Col>
                     <Col xs={6}>
-                      <div className="icon-box">{c.icon}</div>
+                      <div className="icon-box flex items-center justify-center">
+                        {c.icon}
+                      </div>
                     </Col>
                   </Row>
                 </div>
@@ -407,7 +398,18 @@ function Dashboard() {
             </Col>
           ))}
         </Row>
-
+        <Row gutter={[24, 0]}>
+          <Col xs={24} sm={24} md={12} lg={12} xl={10} className="mb-24">
+            <Card bordered={false} className="criclebox h-full">
+              <Echart />
+            </Card>
+          </Col>
+          <Col xs={24} sm={24} md={12} lg={12} xl={14} className="mb-24">
+            <Card bordered={false} className="criclebox h-full">
+              <LineChart />
+            </Card>
+          </Col>
+        </Row>
         <Row gutter={[24, 0]}>
           <Col xs={24} sm={24} md={12} lg={12} xl={16} className="mb-24">
             <Card bordered={false} className="criclebox cardbody h-full">
@@ -428,23 +430,21 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-                    <div className="flex items-center w-fit gap-3">
-                      <Button type="primary" className="ml-6">
-                        ADD NEW
-                      </Button>
-                      <div className="shadow-none">
+              <div className="flex items-center w-fit gap-3">
+                <Button type="primary" className="ml-6">
+                  ADD NEW
+                </Button>
+                <div className="shadow-none">
                   <Upload {...uploadProps}>
                     <Button
                       type="dashed"
                       className="ant-full-box"
                       icon={<ToTopOutlined />}
                     >
-                      <span className="click">
-                        Upload Employ Excel Sheet
-                      </span>
+                      <span className="click">Upload Employ Excel Sheet</span>
                     </Button>
                   </Upload>
-                    </div>
+                </div>
               </div>
               <div className="ant-list-box table-responsive mt-5">
                 <table className="width-100">
@@ -493,10 +493,7 @@ function Dashboard() {
                 </table>
               </div>
               <div className="uploadfile mt-5 shadow-none">
-                <Button
-                  type="secondary"
-                  className="width-100"
-                >
+                <Button type="secondary" className="width-100">
                   <span className="click">View all</span>
                 </Button>
               </div>
@@ -529,72 +526,6 @@ function Dashboard() {
                 >
                   {<MenuUnfoldOutlined />} REVERSE
                 </Button>
-              </div>
-            </Card>
-          </Col>
-        </Row>
-
-        <Row gutter={[24, 0]}>
-          <Col xs={24} md={12} sm={24} lg={12} xl={14} className="mb-24">
-            <Card bordered={false} className="criclebox h-full">
-              <Row gutter>
-                <Col
-                  xs={24}
-                  md={12}
-                  sm={24}
-                  lg={12}
-                  xl={14}
-                  className="mobile-24"
-                >
-                  <div className="h-full col-content p-20">
-                    <div className="ant-muse">
-                      <Text>Built by developers</Text>
-                      <Title level={5}>Muse Dashboard for Ant Design</Title>
-                      <Paragraph className="lastweek mb-36">
-                        From colors, cards, typography to complex elements, you
-                        will find the full documentation.
-                      </Paragraph>
-                    </div>
-                    <div className="card-footer">
-                      <a className="icon-move-right" href="#pablo">
-                        Read More
-                        {<RightOutlined />}
-                      </a>
-                    </div>
-                  </div>
-                </Col>
-                <Col
-                  xs={24}
-                  md={12}
-                  sm={24}
-                  lg={12}
-                  xl={10}
-                  className="col-img"
-                >
-                  <div className="ant-cret text-right">
-                    <img src={card} alt="" className="border10" />
-                  </div>
-                </Col>
-              </Row>
-            </Card>
-          </Col>
-
-          <Col xs={24} md={12} sm={24} lg={12} xl={10} className="mb-24">
-            <Card bordered={false} className="criclebox card-info-2 h-full">
-              <div className="gradent h-full col-content">
-                <div className="card-content">
-                  <Title level={5}>Work with the best</Title>
-                  <p>
-                    Wealth creation is an evolutionarily recent positive-sum
-                    game. It is all about who take the opportunity first.
-                  </p>
-                </div>
-                <div className="card-footer">
-                  <a className="icon-move-right" href="#pablo">
-                    Read More
-                    <RightOutlined />
-                  </a>
-                </div>
               </div>
             </Card>
           </Col>

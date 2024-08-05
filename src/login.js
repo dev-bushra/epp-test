@@ -1,17 +1,12 @@
+import "./App.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./App.css";
 import { Box, Button, Text } from "@chakra-ui/react";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 
 const Home = () => {
   const navigate = useNavigate();
-
-  // const handleClick = () => {
-  //   navigate('/about');
-  // };
-
   const card_data = [
     {
       image: "/login/brands transparent.png",
@@ -91,7 +86,6 @@ const Home = () => {
               the most trusted salaries system
             </span>
           </div>
-
           <div className="flex flex-col items-center justify-center gap-3 mt-10">
             <Input
               size="large"
